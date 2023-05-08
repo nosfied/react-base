@@ -1,20 +1,26 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { FaHome, FaSignInAlt, FaUserAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { Nav } from './styled';
 
 export default function Header() {
+  const botaoClicado = useSelector((state) => state.example.botaoClicado);
   return (
     <Nav>
-      <a href="rota">
+      <Link to="/">
         <FaHome size={24} />
-      </a>
-      <a href="rota">
+      </Link>
+      <Link to="/login">
         <FaUserAlt size={24} />
-      </a>
-      <a href="rota">
+      </Link>
+      <Link to="/rota">
         <FaSignInAlt size={24} />
-      </a>
+      </Link>
+      {botaoClicado ? 'Clicado' : 'Não Clicado'}
     </Nav>
   );
 }
